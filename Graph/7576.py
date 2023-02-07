@@ -1,9 +1,6 @@
 from collections import deque
 d = [(0,1),(0,-1),(1,0),(-1,0)]
 
-def bfs():
-    print('adf')
-
 M,N = map(int, input().split())
 graph = [[0 for _ in range(M)] for _ in range(N)]
 t_cnt = 0
