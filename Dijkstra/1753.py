@@ -1,3 +1,5 @@
+# Dijkstra 알고리즘 연습용 문제
+
 import sys
 import heapq
 input = sys.stdin.readline
