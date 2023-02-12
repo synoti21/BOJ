@@ -6,7 +6,6 @@ INF = sys.maxsize
 N, E = map(int, input().split())
 graph = [[] for _ in range(N+1)]
 heap = []
-pred = [[] for _ in range(N+1)]
 noway = 0
 
 for _ in range(E):
