@@ -10,21 +10,26 @@ table = []
 heap = []
 
 def sol():
-    r_start = 0
     table[1] = 0
     heapq.heappush(heap, (0, 1))
+    prob_dis = []
+
     while heap:
         wei, now_node = heapq.heappop(heap)
-        if now_node == 1 and r_start == 1:
-            return table[1]
         for new_node, w in graph[now_node]:
-            if new_node == 1:
-                r_start = 1
             new_w = wei+w
             if table[new_node] > new_w:
                 table[new_node] = new_w
-                heapq.heappush(heap, (new_w, new_node))
-    return 0
+                if new_node == 1:
+                    prob_dis.append(new_w)
+                else:
+                    heapq.heappush(heap, (new_w, new_node))
+            elif new_node == 1:
+                prob_dis.append(new_w)
+    if len(prob_dis):
+        return sorted(prob_dis)[0]
+    else:
+        return 0
 
 for _ in range(TC):
     N, M, W = map(int, input().split())
