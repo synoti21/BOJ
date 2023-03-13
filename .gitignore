@@ -1,3 +1,5 @@
 /venv
 .idea
 README.md
+/C++/cmake-build-debug
+/C++/.idea

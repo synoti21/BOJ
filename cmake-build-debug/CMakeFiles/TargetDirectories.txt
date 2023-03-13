@@ -1,3 +1,0 @@
-/Users/jasonahn/Documents/BOJ/cmake-build-debug/CMakeFiles/BOJ.dir
-/Users/jasonahn/Documents/BOJ/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/jasonahn/Documents/BOJ/cmake-build-debug/CMakeFiles/rebuild_cache.dir
