@@ -1,42 +1,37 @@
-n= int(input())
-fac = list(map(int,input().split()))
+n = int(input())
+fac = list(map(int,input().split()))+[0,0]
 ans = 0
 
-def sol(si):
-    global ans
+def buy(case, index):
+    global fac, ans
 
-    if si < n - 2:
-        if fac[si + 1] and fac[si + 2] and fac[si+2] >= fac[si+1]:
-            fac[si] -= 1
-            fac[si+1] -= 1
-            fac[si+2] -= 1
-            ans += 7
-        elif fac[si+1] and fac[si+1] >= fac[si]:
-            fac[si] -= 1
-            fac[si+1] -=1
-            ans += 5
-        else:
-            ans += 3
-            fac[si] -= 1
-    elif si < n-1:
-        if fac[si+1] and fac[si+1] >= fac[si]:
-            fac[si] -= 1
-            fac[si+1] -=1
-            ans += 5
-        else:
-            ans += 3
-            fac[si] -= 1
-    else:
-        ans += 3 * fac[si]
-        fac[si] = 0
-    return None
+    if case == 3:
+        tm = min(fac[index], fac[index+1], fac[index+2])
+        fac[index] -= tm
+        fac[index+1] -= tm
+        fac[index+2] -= tm
+        ans += tm*7
+    elif case == 2:
+        tm = min(fac[index], fac[index+1])
+        fac[index] -= tm
+        fac[index+1] -= tm
+        ans += tm*5
+    elif case == 1:
+        ans += fac[index]*3
 
 
 for i in range(n):
-    if not fac[i]:
-        continue
+    if fac[i+1] > fac[i+2]:
+        tm = min(fac[i], fac[i+1]-fac[i+2])
+        fac[i] -= tm
+        fac[i+1] -= tm
+        ans += tm*5
+        buy(3,i)
+        buy(1,i)
+
     else:
-        while fac[i]:
-            sol(i)
+        buy(3,i)
+        buy(2,i)
+        buy(1,i)
 
 print(ans)
