@@ -36,7 +36,7 @@ for _ in range(m):
 ans = []
 sum_cost = 0
 for i in range(len(parent)):
-    p = find(parent[i][0])
+    p = find(parent[i][0]) #분리 집합 문제는 항상 최상위 노드를 기준으로 판단해야 한다. 꼭 최상위 노드를 찾는 것을 잊지 않아야 함.
 
     if p not in ans:
         sum_cost += parent[p][1]
